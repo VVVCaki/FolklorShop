@@ -1,0 +1,117 @@
+
+<div id="divForm" >
+        
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(); userForm.reset()" novalidate >
+                <fieldset>
+                <legend><b>Customer comment:</b></legend>
+            <div>
+                <div class="form-group">
+                        <i class="fa fa-user" ></i><label class=" col-md-3"for="firstName">Name:</label>
+                        <input    
+                        id="firstName" 
+                        type="text"  
+                        class="form-control col-md-8 "
+                        ngModel
+                        #nameRef="ngModel"
+                        required
+                        minlength="3"
+                        name="firstName"
+                        placeholder="Marko Markovic">
+                    
+                    <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger col-md-10">
+                        <div [hidden]="!nameRef.errors.required">Please enter a name.</div>
+                        <div [hidden]="!nameRef.errors.minlength">Please enter at least 3 characters.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <i class="fa fa-phone"></i> <label class="control-label col-md-3" for="phone">Phone:</label>
+                    <input  
+                        id="phone" 
+                        type="text" 
+                        class="form-control col-md-8" 
+                        ngModel
+                        #phoneRef="ngModel"
+                        required
+                        name="phone"
+                        placeholder="+ (123) 456-7890"
+                        [textMask]="{mask: phoneMask}">
+                     <div *ngIf="phoneRef.errors && (phoneRef.dirty || phoneRef.touched)" class="alert alert-danger col-md-10">
+                            <div [hidden]="!phoneRef.errors.required">Please enter phone number in this form.</div>
+                            
+                    </div>
+                   
+                </div>
+                <div class="form-group">
+                        <i class="fa fa-envelope" ></i><label class="control-label col-md-3" for="email">Email:</label>
+                    <input  
+                        id="email" 
+                        type="email" 
+                        class="form-control col-md-8" 
+                        ngModel
+                        #emailRef="ngModel"
+                        required
+                        email
+                        name="email"
+                        placeholder="aleksandar@gmail.com">
+                     <div *ngIf="emailRef.errors && (emailRef.dirty ||emailRef.touched)" class="alert alert-danger col-md-10">
+                            <div [hidden]="!emailRef.errors.required">Please enter your email.</div>
+                            <div [hidden]="!emailRef.errors.email">Please enter valid email.</div>
+                     </div>
+                </div>
+                <div class="form-group">
+                        <i class="fa fa-home" ></i><label class="control-label col-md-3" for="address">Address:</label>
+                    <input  
+                        id="address" 
+                        type="text" 
+                        class="form-control col-md-8"
+                        ngModel
+                        #addressRef="ngModel"
+                        required
+                        minlength="5"
+                        name="address"
+                        placeholder="Bulevar Oslobodjenja 16">
+                     <div *ngIf="addressRef.errors && (addressRef.dirty ||addressRef.touched)" class="alert alert-danger col-md-10">
+                            <div [hidden]="!addressRef.errors.required">Please enter your address.</div>
+                            <div [hidden]="!addressRef.errors.minlength">Address must have at least 5 characters.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <i class="fa fa-book" ></i><label class="control-label col-md-3" for="subject">Subject:</label>
+                    <input  
+                        id="subject" 
+                        type="text" 
+                        ngModel
+                        #subjectRef="ngModel"
+                        required
+                        class="form-control col-md-8" 
+                        name="subject"
+                        placeholder="Order number 1">
+                    <div *ngIf="subjectRef.errors && (subjectRef.dirty ||subjectRef.touched)" class="alert alert-danger col-md-10">
+                            <div [hidden]="!subjectRef.errors.required">Please enter name of your order.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <i class="fa fa-pencil" ></i><label class="control-label col-md-3"  for="comment">Comment:</label>
+                    <textarea  
+                        name="comment" 
+                        id="comment" 
+                        cols="25" 
+                        rows="6"
+                        wrap="soft"
+                        class="form-control col-md-8" 
+                        placeholder="Your text here..." ></textarea>
+                </div>
+                
+                <button 
+                type="submit" 
+                id="btnAlert"
+                class="btn"
+                [disabled]="!userForm.form.valid" 
+               
+                >Submit</button>
+            </div>
+        </fieldset>
+            </form>
+        
+</div>
+

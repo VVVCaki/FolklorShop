@@ -1,0 +1,37 @@
+h1 {
+    font-family: cursive;
+    font-weight: bold;
+    color: black;
+    
+    -webkit-animation: colorchange 5s infinite; 
+    animation: colorchange 5s infinite;
+}
+@-webkit-keyframes colorchange {
+     0%  {background: #e7cc81;}
+    25%  {background: #f7aa04;}
+    50%  {background: #f00a02;}
+    75%  {background: #b3e95c;}
+    100% {background: #e7cc81;}
+}
+@keyframes colorchange {
+    0%  {background: #e7cc81;}
+    25%  {background: #f7aa04;}
+    50%  {background: #f00a02;}
+    75%  {background: #b3e95c;}
+    100% {background: #e7cc81;}
+}
+
+#p1 {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 20px;
+    color: #bd8200;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+}
+
+img {
+    width: 400px;
+    height: 200px;
+}
